@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Регистрация{% endblock %}
+{% load materializecss %}
+{% block main_body %}
+
+<nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: orange"  >
+    <a href="#" class="navbar-brand px-5">
+        <img src="{% static 'img/treasure-chest.svg' %}" width="50" height="50" alt="logo">
+    </a>
+    <div class="right">{{ user.first_name }} </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</nav>
+    <div class="container">
+    <div class="row">
+        <div class="col s4">
+            <ul>
+                <li class=""> здесь какой-то свой контент</li>
+                <li class=""> здесь какой-то свой контент</li>
+                <li class=""> здесь какой-то свой контент</li>
+                <br>
+                <li class="">И даже ещё больше контента</li>
+                <li class="">И даже ещё больше контента</li>
+                <li class="">И даже ещё больше контента</li>
+            </ul>
+        </div>
+        <div class="col s8">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tincidunt sapien id nibh facilisis blandit. Donec cursus nisl sed ornare gravida. Donec posuere elit quis porta faucibus. Nulla at neque pulvinar, varius nisl ac, sollicitudin sapien. Vestibulum volutpat pellentesque vehicula. Pellentesque semper sed ex at tempus. Duis nisl est, aliquet sit amet tellus ut, maximus placerat risus. Etiam in fermentum enim, nec gravida ipsum.
+
+Donec dignissim, ipsum nec consequat tempus, turpis velit tempus massa, semper bibendum nisl lacus id mauris. Nulla facilisi. Duis pellentesque quis diam in tincidunt. Donec est nibh, dictum non arcu ut, maximus euismod ligula. Proin ultricies auctor nibh at sollicitudin. Morbi lacinia consectetur varius. Praesent et lorem ac sem lacinia hendrerit vel ac ante. Pellentesque tincidunt malesuada ex, id vehicula ligula facilisis eu. Donec quis urna turpis. Quisque risus ante, lacinia in nisl non, viverra semper est. Suspendisse nec neque posuere, pellentesque risus quis, ultrices risus. Curabitur venenatis odio vel semper tristique.
+
+</p>
+            <a onclick="priceplan()" href="{{ cabinet_link }}" target="_blank"> Перейти в личный кабинет priceplan</a>
+        </div>
+    </div>
+    </div>
+    <script>
+    function priceplan(){
+        const link = '{{cabinet_link}}'
+
+    }
+    </script>
+{% endblock %}
