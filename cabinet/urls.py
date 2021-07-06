@@ -5,7 +5,8 @@ from .views import index, redirect_to_pp, register_view, user_register, cabinet_
 urlpatterns = [
     path('', index),
     path('register/', register_view),
-    path('priceplan/', redirect_to_pp),
+    path('priceplan/<str:key>/', redirect_to_pp),
     path('api/register/', user_register),
-    path('cabinet/', cabinet_view)
+    path('cabinet/', cabinet_view),
+
 ]

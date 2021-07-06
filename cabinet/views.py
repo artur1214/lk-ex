@@ -13,7 +13,7 @@ from cabinet.models import Profile
 
 
 def index(request):
-    return render(request, 'index.html')
+    return redirect('/register/')
 
 def user_login(request):
     def post():
@@ -85,14 +85,18 @@ def get_cabinet_link(priceplan_id):
     auth_data = json.loads(rsp_auth_key.content)
     print(auth_data)
     priceplan_auth_key = auth_data['data']['key']  # получение auth_key
-    return REDIRECT_LINK % priceplan_auth_key
+    return REDIRECT_LINK % priceplan_auth_key, priceplan_auth_key
 
 
 def cabinet_view(request):
     if not request.user.is_authenticated:
         return redirect('/register/')
-    link = get_cabinet_link(request.user.profile.priceplan_id)
-    return render(request, 'cabinet.html', {'user': request.user, 'cabinet_link': link})
+    link, key = get_cabinet_link(request.user.profile.priceplan_id)
+    return render(request, 'cabinet.html', {'user': request.user, 'cabinet_link': link, 'key': key })
 
-def redirect_to_pp(request):
-    return redirect()
+
+def redirect_to_pp(request, key):
+    SUBDOMAIN = "test"
+    REDIRECT_LINK = f'http://{SUBDOMAIN}-lk.pp.ru:8000/auth-key/%s/'
+    link = REDIRECT_LINK %key
+    return redirect(link)
